@@ -3,6 +3,7 @@ build
 test
 src/**.js
 .idea/*
+README-español.md
 
 coverage
 .nyc_output

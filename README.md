@@ -29,7 +29,7 @@ _**control-consultas-doc** se define como una dependencia._
 ## Pruebas ⚙️
 
 ### Uso - Funcionamiento 🔩
-Importamos el modulo **control-consultas-doc** en la tipica importacion en ES6 - ES7 (Typecript - JavaScript)
+Importamos el modulo **control-consultas-doc** en la tipica importacion en ES6 - ES7 (TypeCript - JavaScript)
 ``` ts
 import { Sunat, Contribuyente } from 'control-consultas-doc';
 ```
@@ -44,7 +44,7 @@ sunat.consultaRuc('12345678912')
     })
     .catch(error => {
         console.log(error)
-    })
+    });
 ```
 ### Async/Await
 Tambien podemos hacer uso del **Async/Await**, La finalidad de los operadores async y await es simplificar aun más la forma en que trabajamos con las promesas.
@@ -61,7 +61,7 @@ class Consulta {
 
 contribuyente
 
-```json
+```
 {
     Ruc: string;
     RazonSocial: string;
@@ -103,5 +103,5 @@ contribuyente
 * Comenta a otros sobre este proyecto 📢.
 * Comenta sobres las mejoras que encuentras 🤓.
 
-## Autores ✒️
+## Autor ✒️
 * [LeonelHS](https://www.facebook.com/Leonel.Hacha.Salazar) - Cuenta de **Facebook** Cualquier duda o critica.

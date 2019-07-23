@@ -4,6 +4,7 @@ test
 src/**.js
 .idea/*
 README-español.md
+package-lock.json
 
 coverage
 .nyc_output

@@ -12,3 +12,5 @@ build/docs
 coverage
 .nyc_output
 *.log
+README-español.md
+package-lock.json

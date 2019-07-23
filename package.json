@@ -1,6 +1,6 @@
 {
   "name": "control-consultas-doc",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Consultas de nro de documentos a las diferentes entidades publicas del estado de l Perú",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",

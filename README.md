@@ -22,7 +22,7 @@ npm run start
 
 ### Instalar con NPM 🔧
 ```
-npm install --save control-consultas-doc
+npm install --save 'control-consultas-doc';
 ```
 _**control-consultas-doc** se define como una dependencia._
 

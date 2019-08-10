@@ -1,6 +1,6 @@
-import { Comun } from './comun';
+import { RespuestaHttp } from './respuesta-http';
 
-export class RCaptcha extends Comun {
+export class RCaptcha extends RespuestaHttp {
     private captcha?: string;
 
     get Captcha(): string {

@@ -1,6 +1,6 @@
-import { Comun } from './comun';
+import { RespuestaHttp } from './respuesta-http';
 
-export class RHtml extends Comun {
+export class RHtml extends RespuestaHttp {
     private pagina?: string;
 
     get Pagina(): string {

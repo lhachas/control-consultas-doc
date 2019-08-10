@@ -9,10 +9,10 @@ _Consultas de Nro. de documentos a las diferentes entidades públicas del estado
  - NodeJS 10.16 
  - TypeScript 3.4 o Superior
 
-### Instalación 🔧
+### Instalación 📖
 _Para instalar clona este **Repositorio** ó directamente desde el gestor de paquetes de NodeJS **(NPM)**_
 
-### Clonar 🔧
+### Clonar 📦
 ```
 git clone https://github.com/ZMALIM/control.git
 cd control-consultas-doc
@@ -37,7 +37,7 @@ import { Sunat, Contribuyente } from 'control-consultas-doc';
 ### Consulta de RUC ⌨️
 Para realizar la consulta del un numero de **RUC** hacemos uso del metodo **consultaRuc** lo cual esto nos devolvera una promesa de tipo **Contribuyente**
 ``` ts
-const Sunat = new Sunat();
+const sunat = new Sunat();
 sunat.consultaRuc('12345678912')
     .then(contribuyente: Contribuyente => {
         console.log(contribuyente)

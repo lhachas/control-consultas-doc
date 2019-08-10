@@ -20,6 +20,8 @@
     "one-line": true,
     "prefer-const": false,
     "curly": false,
-    "no-object-literal-type-assertion": false
+    "no-object-literal-type-assertion": false,
+    "no-unused-expression": false,
+    "no-return-await": false
   }
 }

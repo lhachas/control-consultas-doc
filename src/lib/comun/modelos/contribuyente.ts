@@ -1,31 +1,41 @@
 import { IContribuyente } from '../interfaces';
 
 export class Contribuyente implements IContribuyente {
-    private ruc!: string;
-    private razonSocial!: string;
-    private tipo!: string;
-    private tipoDocumento!: string;
-    private nombreComercial!: string;
-    private fechaInscripcion!: string;
-    private fechaInicioActividades!: string;
-    private estado!: string;
-    private fechaBaja!: string;
-    private condicion!: string;
-    private profesionUOficio!: string;
-    private direccion!: string;
-    private departamento!: string;
-    private provincia!: string;
-    private distrito!: string;
-    private sistemaEmisionComprobante!: string;
-    private comercioExterior!: string;
-    private sistemaContabilidad!: string;
-    private actividadesEconomicas!: string[];
-    private comprobantesPago!: string[];
-    private sistemaEmisionElectr!: string[];
-    private fechaEmisorElectronico!: string;
-    private cpe!: string[];
-    private fechaAfiliadoPLE!: string;
-    private padrones!: string[];
+    private ruc?: string;
+    private razonSocial?: string;
+    private tipo?: string;
+    private tipoDocumento?: string;
+    private nombreComercial?: string;
+    private fechaInscripcion?: string;
+    private fechaInicioActividades?: string;
+    private estado?: string;
+    private fechaBaja?: string;
+    private condicion?: string;
+    private profesionUOficio?: string;
+    private direccion?: string;
+    private departamento?: string;
+    private provincia?: string;
+    private distrito?: string;
+    private sistemaEmisionComprobante?: string;
+    private comercioExterior?: string;
+    private sistemaContabilidad?: string;
+    private actividadesEconomicas?: string[];
+    private comprobantesPago?: string[];
+    private sistemaEmisionElectr?: string[];
+    private fechaEmisorElectronico?: string;
+    private cpe?: string[];
+    private fechaAfiliadoPLE?: string;
+    private padrones?: string[];
+    private telefono: string;
+    private fax?: string;
+    private principalCIIU?: string;
+    private secundario1CIIU?: string;
+    private secundario2CIIU?: string;
+    private afectoNuevoRUS?: string;
+    private buenContribuyente?: string
+    private agenteRetencion?: string;
+    private agentePercepcionVtaInt?: string;
+    private agentePercepcionComLiq?: string;
 
     public get Ruc(): string
     {
@@ -274,5 +284,105 @@ export class Contribuyente implements IContribuyente {
     public set Padrones(padrones: string[])
     {
         this.padrones = padrones;
+    }
+
+    public get Telefono(): string
+    {
+        return this.telefono;
+    }
+
+    public set Telefono(telefono: string)
+    {
+        this.telefono = telefono;
+    }
+
+    public get Fax(): string
+    {
+        return this.fax;
+    }
+
+    public set Fax(fax: string)
+    {
+        this.fax = fax;
+    }
+
+    public get PrincipalCIIU(): string
+    {
+        return this.principalCIIU;
+    }
+
+    public set PrincipalCIIU(principalCIIU: string)
+    {
+        this.principalCIIU = principalCIIU;
+    }
+
+    public get Secundario1CIIU(): string
+    {
+        return this.secundario1CIIU;
+    }
+
+    public set Secundario1CIIU(secundario1CIIU: string)
+    {
+        this.secundario1CIIU = secundario1CIIU;
+    }
+
+    public get Secundario2CIIU(): string
+    {
+        return this.secundario2CIIU;
+    }
+
+    public set Secundario2CIIU(secundario2CIIU: string)
+    {
+        this.secundario2CIIU = secundario2CIIU;
+    }
+
+    public get AfectoNuevoRUS(): string
+    {
+        return this.afectoNuevoRUS;
+    }
+
+    public set AfectoNuevoRUS(afectoNuevoRUS: string)
+    {
+        this.afectoNuevoRUS = afectoNuevoRUS;
+    }
+
+    public get BuenContribuyente(): string
+    {
+        return this.buenContribuyente;
+    }
+
+    public set BuenContribuyente(buenContribuyente: string)
+    {
+        this.buenContribuyente = buenContribuyente;
+    }
+
+    public get AgenteRetencion(): string
+    {
+        return this.agenteRetencion;
+    }
+
+    public set AgenteRetencion(agenteRetencion: string)
+    {
+        this.agenteRetencion = agenteRetencion;
+    }
+
+    public get AgentePercepcionVtaInt(): string
+    {
+        return this.agentePercepcionVtaInt;
+    }
+
+    public set AgentePercepcionVtaInt(agentePercepcionVtaInt: string)
+    {
+        this.agentePercepcionVtaInt = agentePercepcionVtaInt;
+    }
+
+    public get AgentePercepcionComLiq(): string
+    {
+        return this.agentePercepcionComLiq;
+    }
+
+    public set AgentePercepcionComLiq(agentePercepcionComLiq: string)
+    {
+        this.agentePercepcionComLiq = agentePercepcionComLiq;
     }
 }

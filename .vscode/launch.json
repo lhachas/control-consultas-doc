@@ -18,7 +18,7 @@
       "preLaunchTask": "npm: build",
       "stopOnEntry": true,
       "smartStep": true,
-      "runtimeArgs": ["--nolazy"],
+      "runtimeArgs": ["--nolazy", "--max-old-space-size=4096"],
       "env": {
         "TYPESCRIPT_STARTER_REPO_URL": "${workspaceFolder}"
       },

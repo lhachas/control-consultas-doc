@@ -4,83 +4,87 @@
 <head>
     <title>.:: Pagina de Mensajes ::.</title>
     <style>
-        \nBODY {
+        BODY {
             font-style: normal;
             font-size: 10pt;
             font-family: Verdana, Arial, Helvetica, sans-serif;
         }
 
-        \nH1 {
+        H1 {
             font-size: 16pt;
             color: Navy;
         }
 
-        \nA {
+        A {
             color: Navy;
         }
 
-        \n.msg {
-            \n\tfont-weight: bold;
-            \n\tfont-size: 12pt;
-            \n\tcolor: Black;
-            \n\tbackground-image: url(/a/imagenes/msg/info.gif);
-            \n\tbackground-repeat: no-repeat;
-            \n\tbackground-position: left;
-            \n\tpadding-left: 50px;
-            \n\theight: 50px;
-            \n\tpadding-top: 10px;
-            \n
+        msg {
+            font-weight: bold;
+            font-size: 12pt;
+            color: Black;
+            background-image: url(/a/imagenes/msg/info.gif);
+            background-repeat: no-repeat;
+            background-position: left;
+            padding-left: 50px;
+            height: 50px;
+            padding-top: 10px;
         }
 
-        \n.msg2 {
-            \n\tfont-weight: bold;
-            \n\tfont-size: 12pt;
-            \n\tcolor: Black;
-            \n
+        .msg2 {
+            font-weight: bold;
+            font-size: 12pt;
+            color: Black;
         }
 
-        \n.error {
+        .error {
             font-style: bold;
             font-size: 12pt;
             color: Blue;
-            \n text-indent: 50px;
-            \n\ttext-align: justify;
-            \n
+            text-indent: 50px;
+            text-align: justify;
         }
 
-        \n.datos {
+        .datos {
             font-size: 10pt;
         }
 
-        \n.soluc {
+        .soluc {
             font-size: 12pt;
         }
 
-        \n.cuerpo {
-            \n border: 1px solid Blue;
-            \n padding: 10px 10px 10px 10px;
-            \n
+        .cuerpo {
+             border: 1px solid Blue;
+             padding: 10px 10px 10px 10px;
+
         }
 
-        \n.form-button {
+        .form-button {
             border-color: #69C;
             border-style: solid;
             border-width: 1px;
             cursor: hand
         }
-
-        \n
     </style>
-    <script
-        language="JavaScript1.2">\nfunction retornar(){ \n   if (history.length > 0) { \n      document.write("<div align=\'LEFT\'><input class=\'form-button\' type=\'button\' value=\'Anterior\' onclick=\'history.go(-1)\'></div>"); \n } \n } \n</script>
-</head>\n\n\n
+</head>
 
-<body bgcolor="#ffffff">\n\n<div class="cuerpo">\n\n<div align="left" class="msg">La aplicaci&#xF3;n ha retornado el
-            siguiente mensaje :</div>\n<p class="error">El codigo ingresado es incorrecto</p>\n
-        <hr size="1px">\n<div align="left" class="msg2">Acci&#xF3;n a realizar :</div>\n<div align="left" class="soluc">
-            Por favor intente nuevamente ejecutar la opcion.</div>\n<br>\n<div align="left" class="msg2">
-            Informaci&#xF3;n adicional :</div>\n<div class="datos">\n\n</div>\n
-        <hr size="3px" color="#0000ff">\n<input class="form-button" type="button" value="Retornar"
-            onclick="history.go(-1)">\n\n</div>\n\n</body>
+<body bgcolor="#ffffff">
+    <div class="cuerpo">
+        <div align="left" class="msg">
+            La aplicaci&#xF3;n ha retornado el
+            siguiente mensaje :
+        </div>
+        <p class="error">El codigo ingresado es incorrecto</p>
+        <hr size="1px">
+        <div align="left" class="msg2">Acci&#xF3;n a realizar :</div>
+        <div align="left" class="soluc">
+            Por favor intente nuevamente ejecutar la opcion.</div><br>
+        <div align="left" class="msg2">
+            Informaci&#xF3;n adicional :</div>
+        <div class="datos"></div>
+        <hr size="3px" color="#0000ff">
+        <input class="form-button" type="button" value="Retornar" onclick="history.go(-1)">
+    </div>
+</body>
 
 </html>

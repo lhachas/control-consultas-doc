@@ -2,8 +2,18 @@ import cheerio from 'cheerio';
 import JSZip, { JSZipObject } from 'jszip';
 import { Departamento, Direccion, Entidad, Contribuyente } from '../modelos';
 import { RContribuyente } from '../intercambio';
+import { ErrorSunat } from '../errores/error.sunat';
+import { ErrorReniec } from '../errores/error.reniec';
 
 export class Utils {
+    private readonly errorSunat: ErrorSunat;
+    private readonly errorReniec: ErrorReniec;
+
+    constructor() {
+        this.errorSunat = new ErrorSunat();
+        this.errorReniec = new ErrorReniec();
+    }
+
     /**
      * @description Recupera el link de archivo [.Zip] devuelto por la [SUNAT]
      * @param html [string]
@@ -14,6 +24,15 @@ export class Utils {
             const $ = cheerio.load(html);
             const link = $('td.bg>a').first().attr('href');
             return link;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    public getLinkPadronReducido(html: string): string {
+        try {
+            const $ = cheerio.load(html);
+            return $('.contentbody').find('div>a').first().attr('href')
         } catch (error) {
             throw error;
         }
@@ -189,7 +208,7 @@ export class Utils {
         const html = table.first().children("tr").find("td[class=bg]").html();
         if(!html){
             respuesta.Exito = false;
-            respuesta.MensajeError = $('.form-table').eq(1).children('tbody').find('tr .bg').text();
+            respuesta.MensajeError = this.errorSunat.getMensajeConsultaRuc(pagina);
             return respuesta;
         }
         table.find('tr .bg').each((_i, elem) => {

@@ -1,20 +1,21 @@
-import { Http } from '../http';
+import { HttpSunat } from '../http';
 import { Contribuyente } from '../comun/modelos';
 import { Utils } from '../comun/utils';
 import { RHtml } from '../comun/intercambio';
 
 export class Sunat {
-    private client: Http;
+    private client: HttpSunat;
     private utils: Utils;
 
     constructor() {
-        this.client = new Http();
+        this.client = new HttpSunat();
         this.utils = new Utils();
     }
 
     async consultaMultipleRuc(rucs: string[]): Promise<Contribuyente[]> {
         try {
             const multiples: RHtml = await this.client.getMultipleRuc(rucs);
+            if (!multiples.Exito) throw multiples;
             const link: string = this.utils.getLink(multiples.Pagina);
             const rzip = await this.client.getZip(link);
             const csv: string = await this.utils.parseZip(rzip.Zip);
@@ -35,8 +36,6 @@ export class Sunat {
     async consultaRuc(ruc: string): Promise<Contribuyente>{
         try {
             const info = await this.client.getInfo(ruc);
-            // console.log(info);
-
             if(!info.Exito) {
                 throw info;
             }

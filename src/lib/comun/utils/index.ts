@@ -55,11 +55,11 @@ export class Utils {
     }
 
     /**
-     *
+     * @description Parsea el [CSV] descargado y almacenado en memoria
      * @param csv [string]
      * @return [Contribuyente[]]
      */
-    public getCsv(csv: string): Contribuyente[] {
+    public parseCSV(csv: string): Contribuyente[] {
         const _csv = csv.replace(/\r/g, '');
         const data = _csv.split('\n').map(line => {
             return line.split('|');

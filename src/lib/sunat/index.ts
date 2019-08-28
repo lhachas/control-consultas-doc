@@ -17,9 +17,12 @@ export class Sunat {
             const multiples: RHtml = await this.client.getMultipleRuc(rucs);
             if (!multiples.Exito) throw multiples;
             const link: string = this.utils.getLink(multiples.Pagina);
+            if (link === '' || link === undefined) throw link;
             const rzip = await this.client.getZip(link);
+            if (!rzip.Exito) throw rzip;
             const csv: string = await this.utils.parseZip(rzip.Zip);
-            return this.utils.getCsv(csv);
+            if (csv === '' || csv === undefined) throw csv;
+            return this.utils.parseCSV(csv);
         } catch (error) {
             throw error;
         }
@@ -43,8 +46,16 @@ export class Sunat {
             if(!Exito) {
                 throw MensajeError;
             }
-            const { Departamento, Provincia, Distrito, Domicilio } = this.utils.getDireccion(ContribuyenteSunat.getValue('Dirección del Domicilio Fiscal'));
-            const { Ruc, RazonSocial } = this.utils.getRazonSocial(ContribuyenteSunat.getValue('Número de RUC'));
+            const {
+                Departamento,
+                Provincia,
+                Distrito,
+                Domicilio
+            } = this.utils.getDireccion(ContribuyenteSunat.getValue('Dirección del Domicilio Fiscal'));
+            const {
+                Ruc,
+                RazonSocial
+            } = this.utils.getRazonSocial(ContribuyenteSunat.getValue('Número de RUC'));
             return {
                 Ruc,
                 RazonSocial,

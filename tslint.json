@@ -1,27 +1,42 @@
 {
-  "extends": ["tslint:latest", "tslint-config-prettier", "tslint-immutable"],
-  "rules": {
-    "no-implicit-dependencies": [true, "dev"],
-    "no-var-keyword": true,
-    "no-parameter-reassignment": true,
-    "typedef": [true, "call-signature"],
-    "readonly-keyword": false,
-    "readonly-array": false,
-    "no-mixed-interface": true,
-    "no-if-statement": false,
-    "member-access": false,
-    "object-literal-sort-keys": false,
-    "no-console": false,
-    "ordered-imports": false,
-    "prefer-readonly": false,
-    "variable-name": false,
-    "no-shadowed-variable": false,
-    "prefer-conditional-expression": false,
-    "one-line": true,
-    "prefer-const": false,
-    "curly": false,
-    "no-object-literal-type-assertion": false,
-    "no-unused-expression": false,
-    "no-return-await": false
-  }
+    "extends": [
+        "tslint:latest",
+        "tslint-config-prettier",
+        "tslint-immutable"
+    ],
+    "linterOptions": {
+        "exclude": [
+            "node_modules/**"
+        ]
+    },
+    "rules": {
+        "no-implicit-dependencies": [
+            true,
+            "dev"
+        ],
+        "no-var-keyword": true,
+        "no-parameter-reassignment": true,
+        "typedef": [
+            true,
+            "call-signature"
+        ],
+        "readonly-keyword": false,
+        "readonly-array": false,
+        "no-mixed-interface": true,
+        "no-if-statement": false,
+        "member-access": false,
+        "object-literal-sort-keys": false,
+        "no-console": false,
+        "ordered-imports": false,
+        "prefer-readonly": false,
+        "variable-name": false,
+        "no-shadowed-variable": false,
+        "prefer-conditional-expression": false,
+        "one-line": true,
+        "prefer-const": false,
+        "curly": false,
+        "no-object-literal-type-assertion": false,
+        "no-unused-expression": false,
+        "no-return-await": false
+    }
 }

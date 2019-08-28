@@ -1,9 +1,9 @@
 import { Options } from 'request-promise';
 import request from 'request';
 import progress from 'request-progress';
-import { Tesseract } from 'tesseract.ts';
 import Jimp from 'jimp';
 import fs from 'fs';
+import { Tesseract } from 'tesseract.ts';
 import { RCaptcha, RHtml, RZip } from '../comun/intercambio';
 import { IHttp } from '../comun/interfaces';
 import { URL } from '../comun/constantes';

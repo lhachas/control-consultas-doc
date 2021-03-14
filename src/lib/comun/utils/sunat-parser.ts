@@ -61,7 +61,7 @@ export class SunatParser
         const { direccion, departamento, provincia, distrito } = this.getDirection(dictionary['Dirección del Domicilio Fiscal'] || dictionary['Domicilio Fiscal']);
         contribuyente.ruc = ruc || '';
         contribuyente.razonSocial = razonSocial || '';
-        contribuyente.telefonos = dictionary['Teléfono(s)'] || [];
+        contribuyente.nombreComercial = dictionary['Nombre Comercial'] || '';
         contribuyente.tipo = dictionary['Tipo Contribuyente'] || '';
         contribuyente.estado = dictionary['Estado del Contribuyente']  || dictionary['Estado'];
         contribuyente.condicion = dictionary['Condición del Contribuyente'] || dictionary['Condición'];
@@ -82,6 +82,7 @@ export class SunatParser
         contribuyente.comprobantesPagoElectronico = dictionary['Comprobantes Electrónicos'] || '';
         contribuyente.fechaAfiliadoPLE = dictionary['Afiliado al PLE desde'] || '';
         contribuyente.padrones = dictionary['Padrones'] || [];
+        contribuyente.telefonos = dictionary['Teléfono(s)'] || [];
         return contribuyente;
     }
 

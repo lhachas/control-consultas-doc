@@ -1,16 +1,15 @@
-import { Dictionary } from 'typescript-collections';
 import { Comun } from './comun';
 import { Contribuyente } from '../modelos';
 
 export class RContribuyente extends Comun {
-    private contribuyenteSunat?: Dictionary<string, any>;
+    private contribuyenteSunat?: any;
     private contribuyente?: Contribuyente;
 
-    public get ContribuyenteSunat(): Dictionary<string, any> {
+    public get ContribuyenteSunat(): any {
         return this.contribuyenteSunat;
     }
 
-    public set ContribuyenteSunat(contribuyenteSunat: Dictionary<string, any>) {
+    public set ContribuyenteSunat(contribuyenteSunat: any) {
         this.contribuyenteSunat = contribuyenteSunat;
     }
 
@@ -24,7 +23,6 @@ export class RContribuyente extends Comun {
 
     constructor() {
         super();
-        this.ContribuyenteSunat = new Dictionary<string, string|string[]>();
         this.Contribuyente = new Contribuyente();
     }
 }

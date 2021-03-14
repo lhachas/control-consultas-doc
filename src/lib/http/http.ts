@@ -1,7 +1,5 @@
 import { defaults, RequestPromiseAPI, jar } from 'request-promise';
 import { HttpResponse } from './http.response';
-import { Cookie } from 'tough-cookie';
-
 export class Http extends HttpResponse {
     public readonly http: RequestPromiseAPI;
 

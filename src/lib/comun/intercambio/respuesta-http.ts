@@ -1,6 +1,4 @@
 import { Comun } from './comun';
-import HttpStatus from 'http-status-codes';
-
 export class RespuestaHttp extends Comun {
     private codigoEstado: number;
     private mensajeEstado: string;

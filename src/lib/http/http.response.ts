@@ -38,22 +38,26 @@ export class HttpResponse {
         if (response.statusCode === HttpStatus.OK) {
             const data = cheerio.load(body);
             const res = HttpStatus.ACCEPTED;
-            switch (data('title').text()) {
-                case '.:: Pagina de Mensajes ::.': {
+            switch (data('title').text()) 
+            {
+                case '.:: Pagina de Mensajes ::.': 
                     rhtml.Exito = false;
                     rhtml.CodigoEstado = HttpStatus.BAD_REQUEST;
                     rhtml.MensajeEstado = HttpStatus.getStatusText(HttpStatus.BAD_REQUEST);
                     rhtml.MensajeError = errorSunat.getMensajeError(data.html());
-
-                }
                 break;
-                case '.:: Pagina de Error ::.': {
+                case '.:: Pagina de Error ::.': 
                     rhtml.Exito = false;
                     rhtml.CodigoEstado = HttpStatus.FORBIDDEN;
                     rhtml.MensajeEstado = HttpStatus.getStatusText(HttpStatus.FORBIDDEN);
                     rhtml.MensajeError = errorSunat.getMensajeError(data.html());
-                }
-                break;
+                    break;
+                case 'Request Rejected':
+                    rhtml.Exito = false;
+                    rhtml.CodigoEstado = HttpStatus.BAD_REQUEST;
+                    rhtml.MensajeEstado = HttpStatus.getStatusText(HttpStatus.BAD_REQUEST);
+                    rhtml.MensajeError = 'La URL solicitada fue rechazada. Consulte con su administrador.';
+                    break;
                 default:
                     rhtml.Exito = true;
                     rhtml.CodigoEstado = HttpStatus.OK;

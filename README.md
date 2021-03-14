@@ -49,10 +49,12 @@ sunat.consultaRuc('12345678912')
 ### Async/Await
 Tambien podemos hacer uso del **Async/Await**, La finalidad de los operadores async y await es simplificar aun más la forma en que trabajamos con las promesas.
 ``` ts
-class Consulta {
-    async Ruc(ruc: string): Promise<Contribuyente> {
+class Consulta 
+{
+    public consultaRuc(ruc: string): Promise<Contribuyente> 
+    {
         const sunat = new Sunat();
-        return await sunat.consultaRuc(ruc);
+        return sunat.consultaRuc(ruc);
     }
 }
 ```
@@ -63,31 +65,42 @@ contribuyente
 
 ```
 {
-    Ruc: string;
-    RazonSocial: string;
-    Tipo: string;
-    TipoDocumento: string;
-    NombreComercial: string;
-    FechaInscripcion: string;
-    FechaInicioActividades: string;
-    Estado: string;
-    FechaBaja: string;
-    Condicion: string;
-    ProfesionUOficio: string;
-    Direccion: string;
-    Departamento: string;
-    Provincia: string;
-    Distrito: string;
-    SistemaEmisionComprobante: string;
-    ComercioExterior: string;
-    SistemaContabilidad: string;
-    ActividadesEconomicas: string[];
-    ComprobantesPago: string[];
-    SistemaEmisionElectr: string[];
-    FechaEmisorElectronico: string;
-    Cpe: string[];
-    FechaAfiliadoPLE: string;
-    Padrones: string[];
+    ruc: string;
+    razonSocial: string;
+    tipo: string;
+    tipoDocumento: string;
+    nombreComercial: string;
+    fechaInscripcion: string;
+    fechaInicioActividades: string;
+    estado: string;
+    fechaBaja: string;
+    condicion: string;
+    profesionUOficio: string;
+    direccion: string;
+    departamento: string;
+    provincia: string;
+    distrito: string;
+    sistemaEmisionComprobante: string;
+    sistemaContabilidad: string;
+    actividadComercioExterior: string;
+    actividadesEconomicas: string[];
+    comprobantesPago: string[];
+    comprobantesPagoElectronico: string[];
+    sistemaEmisionElectronica: string[];
+    fechaEmisorElectronico: string;
+    cpe: string[];
+    fechaAfiliadoPLE: string;
+    padrones: string[];
+    telefonos: string[];
+    fax: string;
+    principalCIIU: string;
+    secundario1CIIU: string;
+    secundario2CIIU: string;
+    afectoNuevoRUS: string;
+    buenContribuyente: string
+    agenteRetencion: string;
+    agentePercepcionVtaInt: string;
+    agentePercepcionComLiq: string;
 }
 ```
 ## Construido con 🛠️

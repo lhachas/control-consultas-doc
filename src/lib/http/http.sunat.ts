@@ -73,9 +73,13 @@ export class HttpSunat extends Http implements IHttp {
     async getRuc(ruc: string, captcha: string): Promise<RHtml> {
         const respuesta = new RHtml();
         try {
+            const e = ruc;
+            captcha: captcha;
+            
             const opciones: Options = {
                 method: 'POST',
                 uri: URL.SUNAT.Consulta,
+                resolveWithFullResponse: true,
                 form: {
                     accion: 'consPorRuc',
                     nroRuc: ruc,
@@ -84,7 +88,7 @@ export class HttpSunat extends Http implements IHttp {
                 },
                 transform: this.respuestaSunat
             }
-            return await this.http(opciones);
+            return this.http(opciones);
         } catch (error) {
             respuesta.Exito = false;
             respuesta.Origen = 'getHtml';
@@ -102,7 +106,8 @@ export class HttpSunat extends Http implements IHttp {
         const respuesta = new RHtml();
         try {
             const { Captcha } = await this.getCaptcha();
-            return await this.getRuc(ruc, Captcha);
+            let info =  await this.getRuc(ruc, Captcha);
+            return info;
         } catch (error) {
             throw error;
         }

@@ -1,18 +1,23 @@
 import { HttpSunat } from '../http';
 import { Contribuyente } from '../comun/modelos';
-import { Utils } from '../comun/utils';
+import { Utils, SunatParser } from '../comun/utils';
 import { RHtml } from '../comun/intercambio';
 
-export class Sunat {
+export class Sunat 
+{
     private client: HttpSunat;
     private utils: Utils;
+    private sunarParser: SunatParser;
 
-    constructor() {
+    constructor() 
+    {
         this.client = new HttpSunat();
         this.utils = new Utils();
+        this.sunarParser = new SunatParser();
     }
 
-    async consultaMultipleRuc(rucs: string[]): Promise<Contribuyente[]> {
+    public async consultaMultipleRuc(rucs: string[]): Promise<Contribuyente[]> 
+    {
         try {
             const multiples: RHtml = await this.client.getMultipleRuc(rucs);
             if (!multiples.Exito) throw multiples;
@@ -36,51 +41,25 @@ export class Sunat {
      * @enum [RucSunat] [20131312955]
      * @enum [RucPN] [10467028028]
      */
-    async consultaRuc(ruc: string): Promise<Contribuyente>{
+    public async consultaRuc(ruc: string): Promise<Contribuyente>
+    {
         try {
             const info = await this.client.getInfo(ruc);
-            if(!info.Exito) {
+
+            if(!info.Exito) 
+            {
                 throw info;
             }
-            const { ContribuyenteSunat, Exito, MensajeError } = this.utils.getContribuyente(info.Pagina);
-            if(!Exito) {
-                throw MensajeError;
+
+            const contribuyente = this.sunarParser.parse(info.Pagina)
+
+            if(!Contribuyente) 
+            {
+                throw 'Error Al Procesar Html.';
             }
-            const {
-                Departamento,
-                Provincia,
-                Distrito,
-                Domicilio
-            } = this.utils.getDireccion(ContribuyenteSunat.getValue('Dirección del Domicilio Fiscal'));
-            const {
-                Ruc,
-                RazonSocial
-            } = this.utils.getRazonSocial(ContribuyenteSunat.getValue('Número de RUC'));
-            return {
-                Ruc,
-                RazonSocial,
-                Tipo:  ContribuyenteSunat.getValue('Tipo Contribuyente'),
-                TipoDocumento:  ContribuyenteSunat.getValue('Tipo de Documento') === undefined ? '-' : ContribuyenteSunat.getValue('Tipo de Documento').join(' '),
-                NombreComercial: ContribuyenteSunat.getValue('Nombre Comercial'),
-                FechaInscripcion: ContribuyenteSunat.getValue('Fecha de Inscripción'),
-                FechaInicioActividades: ContribuyenteSunat.getValue('Fecha Inicio de Actividades'),
-                Estado: ContribuyenteSunat.getValue('Estado del Contribuyente'),
-                FechaBaja: ContribuyenteSunat.getValue('Fecha de Baja') === undefined ? '-' : ContribuyenteSunat.getValue('Fecha de Baja'),
-                Condicion: ContribuyenteSunat.getValue('Condición del Contribuyente'),
-                ProfesionUOficio: ContribuyenteSunat.getValue('Profesión u Oficio') === undefined ? '-' : ContribuyenteSunat.getValue('Profesión u Oficio'),
-                Departamento,
-                Provincia,
-                Distrito,
-                Direccion: Domicilio,
-                SistemaEmisionComprobante: ContribuyenteSunat.getValue('Sistema de Emisión de Comprobante'),
-                ComercioExterior: ContribuyenteSunat.getValue('Actividad de Comercio Exterior'),
-                SistemaContabilidad: ContribuyenteSunat.getValue('Sistema de Contabilidad'),
-                ActividadesEconomicas: ContribuyenteSunat.getValue('Actividad(es) Económica(s)'),
-                ComprobantesPago: ContribuyenteSunat.getValue('Comprobantes de Pago c/aut. de impresión (F. 806 u 816)'),
-                SistemaEmisionElectr: ContribuyenteSunat.getValue('Sistema de Emisión Electrónica'),
-                FechaAfiliadoPLE: ContribuyenteSunat.getValue('Afiliado al PLE desde'),
-                Padrones: ContribuyenteSunat.getValue('Padrones'),
-            } as Contribuyente;
+ 
+            return contribuyente;
+         
         } catch (error) {
             throw error;
         }

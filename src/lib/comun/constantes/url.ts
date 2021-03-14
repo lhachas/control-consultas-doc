@@ -2,6 +2,7 @@ export const URL = {
     SUNAT: {
         Base: 'https://e-consultaruc.sunat.gob.pe',
         Captcha: 'cl-ti-itmrconsruc/captcha',
+        Otro: 'cl-ti-itmrconsruc/FrameCriterioBusquedaWeb.jsp',
         Consulta: 'cl-ti-itmrconsruc/jcrS00Alias',
         Multiple: 'cl-ti-itmrconsmulruc/jrmS00Alias',
     },

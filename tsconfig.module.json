@@ -2,6 +2,7 @@
   "extends": "./tsconfig",
   "compilerOptions": {
     "target": "esnext",
+    "lib": ["es2016", "dom"],
     "outDir": "build/module",
     "module": "esnext"
   },

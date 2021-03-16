@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2017",
     "outDir": "build/main",
     "rootDir": "src",
     "moduleResolution": "Node",
     "module": "commonjs",
+    "resolveJsonModule": true,
     "declaration": true,
     // "inlineSourceMap": true,
     "sourceMap": true,

@@ -17,6 +17,7 @@ export class Contribuyente implements IContribuyente
     public departamento: string;
     public provincia: string;
     public distrito: string;
+    public ubigeo: string;
     public sistemaEmisionComprobante: string;
     public sistemaContabilidad: string;
     public actividadComercioExterior: string;

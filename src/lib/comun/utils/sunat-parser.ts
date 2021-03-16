@@ -1,5 +1,6 @@
 import { Contribuyente, Direccion, Entidad } from '../modelos';
 import { HtmlParser } from './html-parser';
+import ubigeos from '../data/ubigeos.json';
 
 export class SunatParser 
 {
@@ -59,6 +60,7 @@ export class SunatParser
         const contribuyente = new Contribuyente();
         const { ruc, razonSocial } = this.getRazonSocial(dictionary['Número de RUC'] || dictionary['RUC']);
         const { direccion, departamento, provincia, distrito } = this.getDirection(dictionary['Dirección del Domicilio Fiscal'] || dictionary['Domicilio Fiscal']);
+        const { codigo } = this.getUbigeo(departamento, provincia, distrito);
         contribuyente.ruc = ruc || '';
         contribuyente.razonSocial = razonSocial || '';
         contribuyente.nombreComercial = dictionary['Nombre Comercial'] || '';
@@ -69,6 +71,7 @@ export class SunatParser
         contribuyente.departamento = departamento || '';
         contribuyente.provincia = provincia || '';
         contribuyente.distrito = distrito || '';
+        contribuyente.ubigeo = codigo || '';
         contribuyente.fechaInscripcion = dictionary['Fecha de Inscripción'] || '';
         contribuyente.fechaBaja = dictionary['Fecha de Baja'] || '';
         contribuyente.profesionUOficio = dictionary['Profesión u Oficio'] || '';
@@ -143,5 +146,33 @@ export class SunatParser
             departament = this.overridDeps[departament];
         }
         return departament;
+    }
+
+    /**
+     * @description
+     * Get Ubigeo by Departament
+     * Provicia and Distrito
+     * @param {string} departament
+     * @param {string} province 
+     * @param {string} district
+     * @returns {string}
+     */
+    public getUbigeo(departament: string, province: string, district: string): any
+    {
+        if (!departament || departament === '') return '';
+        if (!province || province === '') return '';
+        if (!district || district === '') return '';
+
+        departament = departament.toUpperCase();
+        province = province.toUpperCase();
+        district = district.toUpperCase();
+
+        const allUbigeos = ubigeos;
+
+        return allUbigeos.find(ubigeo => {
+            return ubigeo.departamento === departament &&
+                ubigeo.provincia === province &&
+                ubigeo.distrito === district 
+        });
     }
 }

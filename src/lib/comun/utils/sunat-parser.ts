@@ -96,8 +96,8 @@ export class SunatParser
     {
         const entidad = new Entidad();
         const pos = str.trim().indexOf('-');
-        entidad.ruc = str.substring(0, pos);
-        entidad.razonSocial = str.substring(pos+1);
+        entidad.ruc = str.substring(0, pos).trim();
+        entidad.razonSocial = str.substring(pos+1).trim();
         return entidad;
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "control-consultas-doc",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Consultas de nro de documentos a las diferentes entidades publicas del estado de l Perú",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -18,9 +18,8 @@
   ],
   "scripts": {
     "describe": "npm-scripts-info",
-    "build": "tsc -p tsconfig.json",
-    "start:dev": "nodemon",
-    "build:module": "tsc -p tsconfig.module.json"
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.module.json",
+    "start:dev": "nodemon"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",

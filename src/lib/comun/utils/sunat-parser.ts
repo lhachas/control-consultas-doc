@@ -169,10 +169,12 @@ export class SunatParser
 
         const allUbigeos = ubigeos;
 
-        return allUbigeos.find(ubigeo => {
-            return ubigeo.departamento === departament &&
-                ubigeo.provincia === province &&
-                ubigeo.distrito === district 
+        const ubigeo = allUbigeos.find(ubigeo => {
+            return departament.includes(ubigeo.departamento) &&
+                province.includes(ubigeo.provincia) &&
+                district.includes(ubigeo.distrito)
         });
+
+        return ubigeo || '';
     }
 }

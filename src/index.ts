@@ -9,7 +9,7 @@ export * from './lib/comun/modelos';
 
 // const sunat = new Sunat();
 
-// sunat.consultaRuc('20601587417').then(resp => {
+// sunat.consultaRuc('20131312955').then(resp => {
 //     console.log(resp);
 // }).catch(e => {
 //     console.log(e);
